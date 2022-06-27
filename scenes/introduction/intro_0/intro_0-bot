@@ -1,0 +1,148 @@
+{
+    "buffer": {
+        "Colors": [
+            {
+                "r": 1,
+                "g": 1,
+                "b": 255,
+                "name": "blue"
+            },
+            {
+                "r": 255,
+                "g": 1,
+                "b": 1,
+                "name": "red"
+            }
+        ],
+        "Textures": [
+            {
+                "name": "main_texture",
+                "path": "./assets/sprites/lib/white.png",
+                "smooth": 1
+            }
+        ]
+    },
+    "objects": [
+        {
+            "name": "white",
+            "entity": {
+                "type": "Sprite",
+                "order": 0,
+                "parameters": {
+                    "Texture": {
+                        "Name": "main_texture",
+                        "Rect": {
+                            "left": 385,
+                            "top": 0,
+                            "width": 385,
+                            "height": 217
+                        }
+                    },
+                    "Scale": {
+                        "x": 2.0,
+                        "y": 3.0
+                    }
+                }
+            }
+        },
+        {
+            "name": "SkyByPressAA",
+            "addons": {
+                "event_manager": {
+                    "actions": [
+                        {
+                            "type": 4,
+                            "disable": 1,
+                            "value": 0.0,
+                            "object_enable": "skip_introduction" 
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "SkyByPressClick",
+            "addons": {
+                "event_manager": {
+                    "actions": [
+                        {
+                            "type": 0,
+                            "disable": 1,
+                            "value": 0.0,
+                            "object_enable": "skip_introduction" 
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "skipByTime",
+            "addons": {
+                "event_manager": {
+                    "actions": [
+                        {
+                            "type": 1,
+                            "disable": 1,
+                            "value": 3000.0,
+                            "object_enable": "change_bloc_bot" 
+                        }
+                    ]
+                }
+            },
+            "children": {
+                "objects": [
+                    {
+                        "name": "change_bloc_bot",
+                        "disable": 1,
+                        "addons": {
+                            "change_scene": {
+                                "bloc": 1,
+                                "name": "intro_1-bot"
+                            }
+                        }
+                    },
+                    {
+                        "name": "skip_introduction",
+                        "disable": 1,
+                        "addons": {
+                            "change_scene": {
+                                "bloc": 1,
+                                "name": "intro_start-bot"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "particle_a",
+            "addons": {
+                "particle": {
+                    "spawn_count": 20,
+                    "time": 150.0,
+                    "count": 0.0,
+                    "particle_path": "./prefabs/particle_a",
+                    "position": {
+                        "x": 270.0,
+                        "y": 270.0
+                    }
+                }
+            }
+        },
+        {
+            "name": "particle_b",
+            "addons": {
+                "particle": {
+                    "spawn_count": 50,
+                    "time": 1000.0,
+                    "count": 999.0,
+                    "particle_path": "./prefabs/particle_b",
+                    "position": {
+                        "x": 270.0,
+                        "y": 290.0
+                    }
+                }
+            }
+        }
+    ]
+}

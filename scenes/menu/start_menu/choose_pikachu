@@ -1,0 +1,125 @@
+{
+    "buffer": {
+        "Textures": [
+            {
+                "name": "main_texture",
+                "path": "./assets/sprites/menu/choose_pikachu.png",
+                "smooth": 1
+            },
+            {
+                "name": "arrow_texture",
+                "path": "./assets/sprites/lib/text/white_arrow_down.png",
+                "smooth": 1
+            }
+        ]
+    },
+    "objects": [
+        {
+            "name": "background",
+            "entity": {
+                "type": "Sprite",
+                "order": 0,
+                "parameters": {
+                    "Texture": {
+                        "Name": "main_texture",
+                        "Rect": {
+                            "left": 0,
+                            "top": 0,
+                            "width": 500,
+                            "height": 540
+                        }
+                    },
+                    "Scale": {
+                        "x": 1.1,
+                        "y": 1.0
+                    },
+                    "Position": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            }
+        },
+        {
+            "name": "arrow",
+            "entity": {
+                "type": "Sprite",
+                "order": 0,
+                "parameters": {
+                    "Texture": {
+                        "Name": "arrow_texture",
+                        "Rect": {
+                            "left": 0,
+                            "top": 0,
+                            "width": 31,
+                            "height": 22
+                        }
+                    },
+                    "Scale": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "Position": {
+                        "x": 90.0,
+                        "y": 425.0
+                    }
+                }
+            }
+        },
+        {
+            "name": "info",
+            "entity": {
+                "type": "Sprite",
+                "order": 0,
+                "parameters": {
+                    "Texture": {
+                        "Name": "info",
+                        "Rect": {
+                            "left": 0,
+                            "top": 0,
+                            "width": 613,
+                            "height": 122
+                        }
+                    },
+                    "Scale": {
+                        "x": 0.8,
+                        "y": 1.0
+                    },
+                    "Position": {
+                        "x": 23.0,
+                        "y": 387.0
+                    }
+                }
+            }
+        },
+        {
+            "name": "SkipByPressA",
+            "addons": {
+                "event_manager": {
+                    "actions": [
+                        {
+                            "type": 4,
+                            "disable": 1,
+                            "value": 0.0,
+                            "object_enable": "change_bloc_bot" 
+                        }
+                    ]
+                }
+            },
+            "children": {
+                "objects": [
+                    {
+                        "name": "change_bloc_bot",
+                        "disable": 1,
+                        "addons": {
+                            "change_scene": {
+                                "bloc": 1,
+                                "name": "intro_chap_1-bot"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

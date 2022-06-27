@@ -1,0 +1,531 @@
+{
+    "buffer": {
+        "Textures": [
+            {
+                "name": "main_texture",
+                "path": "./assets/sprites/map/guild_scale.png",
+                "smooth": 1
+            },
+            {
+                "name": "main_pokemon",
+                "path": "./assets/sprites/pokemons/pikachu/walk.png",
+                "smooth": 1
+            },
+            {
+                "name": "second_pokemon",
+                "path": "./assets/sprites/pokemons/evoli/walk.png",
+                "smooth": 1
+            }
+        ]
+    },
+    "objects": [
+        {
+            "name": "echap",
+            "addons": {
+                "click_pause": {
+                    "enable": "pause"
+                }
+            }
+        },
+        {
+            "name": "pause",
+            "disable": 1,
+            "addons": {
+                "pause": {
+                    "empty": 0
+                }
+            },
+            "children": {
+                "objects": [
+                    {
+                        "name": "echapp",
+                        "addons": {
+                            "click_pause": {
+                                "enable": "disableAA"
+                            }
+                        }
+                    },
+                    {
+                        "name": "disableAA",
+                        "disable": 1,
+                        "addons": {
+                            "multi_disable": {
+                                "objects": [
+                                    "pause",
+                                    "disableAA"
+                                ],
+                                "all": 1
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "background",
+            "entity": {
+                "type": "Sprite",
+                "order": 0,
+                "parameters": {
+                    "Texture": {
+                        "Name": "main_texture",
+                        "Rect": {
+                            "left": 0,
+                            "top": 0,
+                            "width": 256,
+                            "height": 192
+                        }
+                    },
+                    "Scale": {
+                        "x": 2.25,
+                        "y": 2.8
+                    },
+                    "Position": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            }
+        },
+        {
+            "name": "main_pokemon",
+            "entity": {
+                "type": "Sprite",
+                "order": 2,
+                "parameters": {
+                    "Texture": {
+                        "Name": "main_pokemon",
+                        "Rect": {
+                            "left": 0,
+                            "top": 161,
+                            "width": 25,
+                            "height": 26
+                        }
+                    },
+                    "Scale": {
+                        "x": 2.0,
+                        "y": 2.5
+                    },
+                    "Position": {
+                        "x": 260.0,
+                        "y": 400.0
+                    }
+                }
+            },
+            "collisions": [
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "box": {
+                        "left": 0.0,
+                        "top": 0.0,
+                        "width": 50.0,
+                        "height": 50.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "second_pokemon",
+            "entity": {
+                "type": "Sprite",
+                "order": 1,
+                "parameters": {
+                    "Texture": {
+                        "Name": "second_pokemon",
+                        "Rect": {
+                            "left": 0,
+                            "top": 194,
+                            "width": 35,
+                            "height": 35
+                        }
+                    },
+                    "Scale": {
+                        "x": 2.0,
+                        "y": 2.5
+                    },
+                    "Position": {
+                        "x": 250.0,
+                        "y": 450.0
+                    }
+                }
+            },
+            "collisions": [
+                {
+                    "name": "box",
+                    "trigger": 1,
+                    "box": {
+                        "left": 0.0,
+                        "top": 0.0,
+                        "width": 50.0,
+                        "height": 50.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "follow_player",
+            "disable": 1,
+            "addons": {
+                "follow_view": {
+                    "object": "main_pokemon",
+                    "bloc": 1
+                }
+            }
+        },
+        {
+            "name": "controller",
+            "addons": {
+                "player_controller": {
+                    "top": "object à enable pour l'animation",
+                    "bottom": "object à enable pour l'animation",
+                    "left": "object à enable pour l'animation",
+                    "right": "right",
+                    "idle": "idle",
+                    "top-left": "object à enable pour l'animation",
+                    "top-right": "object à enable pour l'animation",
+                    "bottom-left": "object à enable pour l'animation",
+                    "bottom-right": "object à enable pour l'animation"
+                }
+            }
+        },
+        {
+            "name": "change_scene_up",
+            "entity": {
+                "type": "Sprite",
+                "order": 1,
+                "parameters": {
+                    "Texture": {
+                        "Name": "invisible"
+                    },
+                    "Position": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            },
+            "addons": {
+                "interact_zone": {
+                    "enable": "change_bot_up"
+                }
+            },
+            "collisions": [
+                {
+                    "name": "box",
+                    "trigger": 1,
+                    "circle": {
+                        "x": 292.0,
+                        "y": 200.0,
+                        "radius": 20.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "collision",
+            "collisions": [
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 175.0,
+                        "y": 528.0,
+                        "radius": 50.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 155.0,
+                        "y": 484.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 135.0,
+                        "y": 472.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 120.0,
+                        "y": 460.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 105.0,
+                        "y": 447.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 93.0,
+                        "y": 430.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 93.0,
+                        "y": 430.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 82.0,
+                        "y": 410.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 74.0,
+                        "y": 390.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 70.0,
+                        "y": 370.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 70.0,
+                        "y": 320.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "box": {
+                        "left": 170.0,
+                        "top": 200.0,
+                        "width": 60.0,
+                        "height": 100.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "box": {
+                        "left": 170.0,
+                        "top": 150.0,
+                        "width": 50.0,
+                        "height": 50.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 405.0,
+                        "y": 528.0,
+                        "radius": 50.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 440.0,
+                        "y": 484.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 455.0,
+                        "y": 472.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 470.0,
+                        "y": 460.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 480.0,
+                        "y": 447.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 490.0,
+                        "y": 430.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 500.0,
+                        "y": 410.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 504.0,
+                        "y": 390.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 515.0,
+                        "y": 370.0,
+                        "radius": 20.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "box": {
+                        "left": 350.0,
+                        "top": 300.0,
+                        "width": 180.0,
+                        "height": 25.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "box": {
+                        "left": 350.0,
+                        "top": 200.0,
+                        "width": 60.0,
+                        "height": 100.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "box": {
+                        "left": 310.0,
+                        "top": 150.0,
+                        "width": 50.0,
+                        "height": 50.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "circle": {
+                        "x": 405.0,
+                        "y": 50.0,
+                        "radius": 50.0
+                    }
+                },
+                {
+                    "name": "box",
+                    "trigger": 0,
+                    "box": {
+                        "left": 200.0,
+                        "top": 150.0,
+                        "width": 50.0,
+                        "height": 50.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "change_bot_up",
+            "disable": 1,
+            "addons": {
+                "change_scene": {
+                    "bloc": 1,
+                    "name": "map_guild_first_stage"
+                }
+            }
+        },
+        {
+            "name": "change_bot_down",
+            "disable": 1,
+            "addons": {
+                "change_scene": {
+                    "bloc": 1,
+                    "name": "map_guild_exit"
+                }
+            }
+        },
+        {
+            "name": "change_scene_down",
+            "entity": {
+                "type": "Sprite",
+                "order": 1,
+                "parameters": {
+                    "Texture": {
+                        "Name": "invisible"
+                    },
+                    "Position": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            },
+            "addons": {
+                "interact_zone": {
+                    "enable": "change_bot_down"
+                }
+            },
+            "collisions": [
+                {
+                    "name": "box",
+                    "trigger": 1,
+                    "circle": {
+                        "x": 290.0,
+                        "y": 610.0,
+                        "radius": 100.0
+                    }
+                }
+            ]
+        }
+    ]
+}

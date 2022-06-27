@@ -1,0 +1,157 @@
+{
+    "buffer": {
+        "Textures": [
+            {
+                "name": "main_texture",
+                "path": "./assets/sprites/introduction/sky.png",
+                "smooth": 1
+            }
+        ]
+    },
+    "objects": [
+        {
+            "name": "background",
+            "entity": {
+                "type": "Sprite",
+                "order": 0,
+                "parameters": {
+                    "Texture": {
+                        "Name": "main_texture",
+                        "Rect": {
+                            "left": 0,
+                            "top": 0,
+                            "width": 255,
+                            "height": 720
+                        }
+                    },
+                    "Scale": {
+                        "x": 2.2,
+                        "y": 2.5
+                    },
+                    "Position": {
+                        "x": 0.0,
+                        "y": -800.0
+                    }
+                }
+            },
+            "addons": {
+                "translation_animation": {
+                    "waitBeforeStart": 1500.0,
+                    "infini": 0,
+                    "reverse": 0,
+                    "paths": [
+                        {
+                            "x": 0.0,
+                            "y": -800.0,
+                            "speed": 8.0
+                        },
+                        {
+                            "x": 0.0,
+                            "y": -1150.0,
+                            "speed": 8.0
+                        }
+                    ] 
+                }
+            }
+        },
+        {
+            "name": "pokemon",
+            "entity": {
+                "type": "Sprite",
+                "order": 0,
+                "parameters": {
+                    "Texture": {
+                        "Name": "main_texture",
+                        "Rect": {
+                            "left": 272,
+                            "top": 361,
+                            "width": 111,
+                            "height": 89
+                        }
+                    },
+                    "Scale": {
+                        "x": 1.5,
+                        "y": 1.7
+                    },
+                    "Position": {
+                        "x": 600.0,
+                        "y": 200.0
+                    }
+                }
+            },
+            "addons": {
+                "translation_animation": {
+                    "waitBeforeStart": 2750.0,
+                    "infini": 0,
+                    "reverse": 0,
+                    "paths": [
+                        {
+                            "x": 250.0,
+                            "y": 350.0,
+                            "speed": 40.0
+                        },
+                        {
+                            "x": -300.0,
+                            "y": 0.0,
+                            "speed": 40.0
+                        }
+                    ] 
+                }
+            }
+        },
+        {
+            "name": "SkyByPressAA",
+            "addons": {
+                "event_manager": {
+                    "actions": [
+                        {
+                            "type": 4,
+                            "disable": 1,
+                            "value": 0.0,
+                            "object_enable": "skip_introduction" 
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "skipByTime",
+            "addons": {
+                "event_manager": {
+                    "actions": [
+                        {
+                            "type": 1,
+                            "disable": 1,
+                            "value": 6000.0,
+                            "object_enable": "change_bloc_bot" 
+                        }
+                    ]
+                }
+            },
+            "children": {
+                "objects": [
+                    {
+                        "name": "change_bloc_bot",
+                        "disable": 1,
+                        "addons": {
+                            "change_scene": {
+                                "bloc": 1,
+                                "name": "intro_2-bot"
+                            }
+                        }
+                    },
+                    {
+                        "name": "skip_introduction",
+                        "disable": 1,
+                        "addons": {
+                            "change_scene": {
+                                "bloc": 1,
+                                "name": "intro_start-bot"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

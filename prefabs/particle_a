@@ -1,0 +1,26 @@
+{
+    "name": "particle_a",
+    "entity": {
+        "type": "CircleShape",
+        "order": 5,
+        "parameters": {
+            "FillColor": "red",
+            "Radius": 5.0
+        }
+    },
+    "addons": {
+        "particle_move": {
+            "variation": 20,
+            "time": 1000.0,
+            "count": 0.0,
+            "speed": 20.0,
+            "path": {
+                "x": 0.0,
+                "y": -10.0
+            }
+        },
+        "change_color": {
+            "empty": 0
+        }
+    }
+}

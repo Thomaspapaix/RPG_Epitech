@@ -1,0 +1,112 @@
+{
+    "buffer": {
+        "Textures": [
+            {
+                "name": "main_texture",
+                "path": "./assets/sprites/introduction/dialga_roar.png",
+                "smooth": 1
+            }
+        ]
+    },
+    "objects": [
+        {
+            "name": "background",
+            "entity": {
+                "type": "Sprite",
+                "order": 0,
+                "parameters": {
+                    "Texture": {
+                        "Name": "main_texture",
+                        "Rect": {
+                            "left": 665,
+                            "top": 0,
+                            "width": 648,
+                            "height": 3078
+                        }
+                    },
+                    "Scale": {
+                        "x": 0.85,
+                        "y": 1.0
+                    },
+                    "Position": {
+                        "x": 0.0,
+                        "y": -1995.0
+                    }
+                }
+            },
+            "addons": {
+                "translation_animation": {
+                    "waitBeforeStart": 1000.0,
+                    "infini": 0,
+                    "reverse": 0,
+                    "paths": [
+                        {
+                            "x": 0.0,
+                            "y": -1995.0,
+                            "speed": 150.0
+                        },
+                        {
+                            "x": 0.0,
+                            "y": -50.0,
+                            "speed": 150.0
+                        }
+                    ] 
+                }
+            }
+        },
+        {
+            "name": "SkyByPressAA",
+            "addons": {
+                "event_manager": {
+                    "actions": [
+                        {
+                            "type": 4,
+                            "disable": 1,
+                            "value": 0.0,
+                            "object_enable": "skip_introduction" 
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "skipByTime",
+            "addons": {
+                "event_manager": {
+                    "actions": [
+                        {
+                            "type": 1,
+                            "disable": 1,
+                            "value": 2200.0,
+                            "object_enable": "change_bloc_top" 
+                        }
+                    ]
+                }
+            },
+            "children": {
+                "objects": [
+                    {
+                        "name": "change_bloc_top",
+                        "disable": 1,
+                        "addons": {
+                            "change_scene": {
+                                "bloc": 2,
+                                "name": "intro_11-top"
+                            }
+                        }
+                    },
+                    {
+                        "name": "skip_introduction",
+                        "disable": 1,
+                        "addons": {
+                            "change_scene": {
+                                "bloc": 2,
+                                "name": "logo-top"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

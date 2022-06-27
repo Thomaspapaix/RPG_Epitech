@@ -1,0 +1,49 @@
+{
+    "buffer": {
+        "Textures": [
+            {
+                "name": "1er_poke",
+                "path": "./assets/sprites/pokemons/pikachu/walk.png",
+                "smooth": 1
+            },
+            {
+                "name": "2eme_poke",
+                "path": "./assets/sprites/pokemons/evoli/walk.png",
+                "smooth": 1
+            }
+        ]
+    },
+    "objects": [
+        {
+            "name": "load_mainPokemon",
+            "addons": {
+                "load_data_object": {
+                    "object": "main_pokemon"
+                }
+            }
+        },
+        {
+            "name": "anim",
+            "addons": {
+                "pokemons_animation": {
+                    "waitbeforestart": 0.0,
+                    "animation": "walk",
+                    "enable": "d",
+                    "infini": 0,
+                    "time": 100.0,
+                    "row": 3,
+                    "object": "main_pokemon",
+                    "nb_rep": 12,
+                    "scale": {
+                        "x": 1.8,
+                        "y": 2.3
+                    },
+                    "position": {
+                        "x": 215.0,
+                        "y": 215.0
+                    }
+                }
+            }
+        }        
+    ]
+}
